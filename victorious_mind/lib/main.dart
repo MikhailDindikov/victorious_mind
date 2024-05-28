@@ -14,11 +14,11 @@ Future<void> main() async {
   //await Apphud.start(apiKey: 'app_tXwe9DfUuX5xXGCG1a6cPV8xGUtXv2');
   await GameCards.getGameCards();
   SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
-  runApp(const MyApp());
+  runApp(const VictoriousMindGame());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class VictoriousMindGame extends StatelessWidget {
+  const VictoriousMindGame({super.key});
 
   @override
   Widget build(BuildContext context) {
