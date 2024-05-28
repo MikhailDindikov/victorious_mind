@@ -20,6 +20,6 @@ class ModeCardd {
   }
 
   int sumCard(ModeCardd c1, ModeCardd c2) {
-    return c1.poRowCard + c2.poRowCard;
+    return c1.poRowCard + c2.poRowCard + c1.poColCard + c2.poColCard;
   }
 }
