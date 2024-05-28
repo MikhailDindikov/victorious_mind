@@ -20,7 +20,11 @@ class ModeCardd {
     return true;
   }
 
-  int sumCard(ModeCardd c1, ModeCardd c2) {
-    return pow(c1.poRowCard + 2* c2.poRowCard + c1.poColCard~/2 + c2.poColCard,2).toInt();
+  double sumCard(ModeCardd c1, ModeCardd c2, int kardKoe) {
+    return 1.0 *
+        kardKoe *
+        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
+                2)
+            .toInt();
   }
 }
