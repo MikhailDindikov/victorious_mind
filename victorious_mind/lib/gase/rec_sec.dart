@@ -112,7 +112,12 @@ import 'package:victorious_mind/zal.dart';
 import 'package:victorious_mind/zal.dart';
 
 class RecSec extends StatelessWidget {
-  const RecSec({super.key});
+  final ModeCardd? modeCardd1;
+  final ModeCardd? modeCardd2;
+  final ModeCardd? modeCardd3;
+  final ModeCardd? modeCardd4;
+  final ModeCardd? modeCardd5;
+  const RecSec({super.key, this.modeCardd1, this.modeCardd2, this.modeCardd3, this.modeCardd4, this.modeCardd5});
   double sumCard0(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
     final kardDi = (c1.poRowCard - c2.poRowCard).abs();
     return kardDi -
