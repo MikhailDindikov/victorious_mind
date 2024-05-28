@@ -5,6 +5,8 @@ import 'package:victorious_mind/cards_stor.dart';
 import 'package:victorious_mind/gase/menu_sec.dart';
 import 'package:victorious_mind/zal.dart';
 
+import 'tupi/pipi/maem_ce.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Zal.zovZal();
@@ -26,7 +28,12 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Aldrich',
         useMaterial3: true,
       ),
-      home: MediaQuery.withNoTextScaling(child: const MenuSec()),
+      home: StatefulBuilder(builder: (context, func) {
+        final cococCa = Get.put(MaemCe());
+        return GetBuilder<MaemCe>(builder: (context) {
+          return MediaQuery.withNoTextScaling(child: const MenuSec());
+        });
+      }),
     );
   }
 }
