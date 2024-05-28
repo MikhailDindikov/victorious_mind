@@ -16,6 +16,7 @@ import 'package:get/get_rx/get_rx.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:victorious_mind/cards_stor.dart';
 import 'package:victorious_mind/gase/gaga/card_cus.dart';
+import 'package:victorious_mind/gase/gaga/mode_cardd.dart';
 import 'package:victorious_mind/gase/menu_sec.dart';
 import 'package:victorious_mind/tupi/zovi.dart';
 
@@ -24,6 +25,87 @@ import '../zal.dart';
 class CaGaSec extends StatefulWidget {
   final String selRez;
   const CaGaSec({required this.selRez, super.key});
+  double sumCard0(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi - 1.0 *
+        kardKoe *
+        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
+                2)
+            .toInt() + kardAngKoe;
+  }
+double sumCard1(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi - 1.0 *
+        kardKoe *
+        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
+                2)
+            .toInt() + kardAngKoe;
+  }
+double sumCard2(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi - 1.0 *
+        kardKoe *
+        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
+                2)
+            .toInt() + kardAngKoe;
+  }
+double sumCard3(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi - 1.0 *
+        kardKoe *
+        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
+                2)
+            .toInt() + kardAngKoe;
+  }
+double sumCard4(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi - 1.0 *
+        kardKoe *
+        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
+                2)
+            .toInt() + kardAngKoe;
+  }
+double sumCard5(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi - 1.0 *
+        kardKoe *
+        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
+                2)
+            .toInt() + kardAngKoe;
+  }
+double sumCard6(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi - 1.0 *
+        kardKoe *
+        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
+                2)
+            .toInt() + kardAngKoe;
+  }
+double sumCard7(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi - 1.0 *
+        kardKoe *
+        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
+                2)
+            .toInt() + kardAngKoe;
+  }
+double sumCard8(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi - 1.0 *
+        kardKoe *
+        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
+                2)
+            .toInt() + kardAngKoe;
+  }
+double sumCard9(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi - 1.0 *
+        kardKoe *
+        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
+                2)
+            .toInt() + kardAngKoe;
+  }
+
 
   @override
   State<CaGaSec> createState() => _CaGaSecState();
