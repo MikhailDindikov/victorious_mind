@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:ui' as ui;
 
 class ModeCardd {
@@ -20,6 +21,6 @@ class ModeCardd {
   }
 
   int sumCard(ModeCardd c1, ModeCardd c2) {
-    return c1.poRowCard + c2.poRowCard + c1.poColCard + c2.poColCard;
+    return pow(c1.poRowCard + 2* c2.poRowCard + c1.poColCard~/2 + c2.poColCard,2).toInt();
   }
 }
