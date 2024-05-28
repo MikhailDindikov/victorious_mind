@@ -20,11 +20,12 @@ class ModeCardd {
     return true;
   }
 
-  double sumCard(ModeCardd c1, ModeCardd c2, int kardKoe) {
-    return 1.0 *
+  double sumCard(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi - 1.0 *
         kardKoe *
         pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
                 2)
-            .toInt();
+            .toInt() + kardAngKoe;
   }
 }
