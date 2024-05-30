@@ -113,7 +113,7 @@ class _MenuSecState extends State<MenuSec> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      if (!isOffMus.value && !Zovi.zoviPl) {
+      if (!(Zal.zal!.getBool('cardsMu') ?? false) && !Zovi.zoviPl) {
         Zovi.goCardsMu('zovi.mp3');
       }
     });

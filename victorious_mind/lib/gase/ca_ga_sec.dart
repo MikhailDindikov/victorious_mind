@@ -277,6 +277,7 @@ class _CaGaSecState extends State<CaGaSec> with TickerProviderStateMixin {
   Future _onCardTa(int indexCa) async {
     dev.log(indxs[indexCa].toString());
     if (indxs[indexCa] == selectIndxs[curCardSel.value]) {
+      Zovi.musCardsOne('cor.mp3');
       finishedCards.add(indxs[indexCa]);
       showSelCard.value = false;
       await Future.delayed(Duration(milliseconds: 400));
@@ -309,6 +310,7 @@ class _CaGaSecState extends State<CaGaSec> with TickerProviderStateMixin {
         cardsWin();
       }
     } else {
+      Zovi.musCardsOne('not_cor.mp3');
       if (ziz.value > 0) {
         ziz.value--;
         if (ziz.value == 0) {
@@ -634,6 +636,18 @@ class _CaGaSecState extends State<CaGaSec> with TickerProviderStateMixin {
                           color: Colors.white,
                         ),
                       ),
+                      SizedBox(
+                        height: 4,
+                      ),
+                      Text(
+                        'YOUR TIME: ' +
+                            '${(cardsSec.value) ~/ 60 < 10 ? '0${(cardsSec.value) ~/ 60}' : '${(cardsSec.value) ~/ 60}'}:${(cardsSec.value) % 60 < 10 ? '0${cardsSec.value % 60}' : (cardsSec.value) % 60}',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white,
+                        ),
+                      ),
                       Expanded(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -688,7 +702,10 @@ class _CaGaSecState extends State<CaGaSec> with TickerProviderStateMixin {
       if (cardsSec.value == 0) {
         backTime!.cancel();
         for (final ctCrd in cts) {
-          if (ctCrd.notNullState) ctCrd.flipCard();
+          if (ctCrd.notNullState) {
+            ctCrd.flipCard();
+            Zovi.musCardsOne('flip.mp3');
+          }
           await Future.delayed(Duration(milliseconds: 400));
         }
         showHint.value = false;

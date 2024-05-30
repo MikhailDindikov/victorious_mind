@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:apphud/apphud.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -13,8 +14,7 @@ import 'tupi/pipi/maem_ce.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Zal.zovZal();
-  await Zal.zal!.clear();
-  //await Apphud.start(apiKey: 'app_tXwe9DfUuX5xXGCG1a6cPV8xGUtXv2');
+  await Apphud.start(apiKey: 'app_PaUvpPaqZgHzA48CmSGk4ivA53LTfS');
   await GameCards.getGameCards();
   SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
   runApp(const VictoriousMindGame());

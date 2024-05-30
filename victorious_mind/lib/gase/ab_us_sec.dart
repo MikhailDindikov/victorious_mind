@@ -1,8 +1,14 @@
 import 'dart:math';
 
+import 'package:apphud/apphud.dart';
+import 'package:apphud/models/apphud_models/apphud_composite_model.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import 'package:victorious_mind/gase/gaga/mode_cardd.dart';
+import 'package:victorious_mind/gase/mimamonini.dart';
 import 'package:victorious_mind/zal.dart';
 import 'package:victorious_mind/zal.dart';
 import 'package:victorious_mind/zal.dart';
@@ -109,13 +115,19 @@ import 'package:victorious_mind/zal.dart';
 import 'package:victorious_mind/zal.dart';
 import 'package:victorious_mind/zal.dart';
 
-class AbUsSec extends StatelessWidget {
+class AbUsSec extends StatefulWidget {
   final ModeCardd? modeCardd1;
   final ModeCardd? modeCardd2;
   final ModeCardd? modeCardd3;
   final ModeCardd? modeCardd4;
   final ModeCardd? modeCardd5;
-  const AbUsSec({super.key, this.modeCardd1, this.modeCardd2, this.modeCardd3, this.modeCardd4, this.modeCardd5});
+  const AbUsSec(
+      {super.key,
+      this.modeCardd1,
+      this.modeCardd2,
+      this.modeCardd3,
+      this.modeCardd4,
+      this.modeCardd5});
   double sumCard0(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
     final kardDi = (c1.poRowCard - c2.poRowCard).abs();
     return kardDi -
@@ -176,6 +188,11 @@ class AbUsSec extends StatelessWidget {
         kardAngKoe;
   }
 
+  @override
+  State<AbUsSec> createState() => _AbUsSecState();
+}
+
+class _AbUsSecState extends State<AbUsSec> {
   double sumCard4(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
     final kardDi = (c1.poRowCard - c2.poRowCard).abs();
     return kardDi -
@@ -266,6 +283,8 @@ class AbUsSec extends StatelessWidget {
         kardAngKoe;
   }
 
+  RxBool puCardsLo = false.obs;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -319,18 +338,32 @@ class AbUsSec extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
-                                  Image.asset(
-                                    'assets/bu/privaty_policy_bt.png',
-                                    height: 45,
-                                    fit: BoxFit.fitWidth,
+                                  GestureDetector(
+                                    onTap: () {
+                                      Get.to(() => Mimamonini(
+                                            mimamoniniType: MimamoniniType.one,
+                                          ));
+                                    },
+                                    child: Image.asset(
+                                      'assets/bu/privaty_policy_bt.png',
+                                      height: 45,
+                                      fit: BoxFit.fitWidth,
+                                    ),
                                   ),
                                   SizedBox(
                                     height: 20,
                                   ),
-                                  Image.asset(
-                                    'assets/bu/terms_of_use_bt.png',
-                                    height: 45,
-                                    fit: BoxFit.fitWidth,
+                                  GestureDetector(
+                                    onTap: () {
+                                      Get.to(() => Mimamonini(
+                                            mimamoniniType: MimamoniniType.onee,
+                                          ));
+                                    },
+                                    child: Image.asset(
+                                      'assets/bu/terms_of_use_bt.png',
+                                      height: 45,
+                                      fit: BoxFit.fitWidth,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -341,18 +374,109 @@ class AbUsSec extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Image.asset(
-                                    'assets/bu/support_bt.png',
-                                    height: 45,
-                                    fit: BoxFit.fitWidth,
+                                  GestureDetector(
+                                    onTap: () {
+                                      Get.to(() => Mimamonini(
+                                            mimamoniniType:
+                                                MimamoniniType.oneee,
+                                          ));
+                                    },
+                                    child: Image.asset(
+                                      'assets/bu/support_bt.png',
+                                      height: 45,
+                                      fit: BoxFit.fitWidth,
+                                    ),
                                   ),
                                   SizedBox(
                                     height: 20,
                                   ),
-                                  Image.asset(
-                                    'assets/bu/restore_purchase_bt.png',
-                                    height: 45,
-                                    fit: BoxFit.fitWidth,
+                                  Obx(
+                                    () => puCardsLo.value
+                                        ? Container(
+                                            width: 224,
+                                            height: 45,
+                                            alignment: Alignment.center,
+                                            child: CupertinoActivityIndicator(
+                                              color: Colors.white,
+                                            ),
+                                          )
+                                        : GestureDetector(
+                                            onTap: () async {
+                                              if (!puCardsLo.value) {
+                                                puCardsLo.value = true;
+                                                final ApphudComposite
+                                                    restPuCards = await Apphud
+                                                        .restorePurchases();
+
+                                                bool failPu = true;
+
+                                                if (restPuCards
+                                                    .purchases.isNotEmpty) {
+                                                  int cntCards = 0;
+                                                  for (final pu in restPuCards
+                                                      .purchases) {
+                                                    if (pu.productId ==
+                                                        'interesting_world') {
+                                                      cntCards++;
+                                                      failPu = false;
+                                                      Zal.zal!.setBool(
+                                                          'secBog', true);
+                                                    }
+                                                    if (pu.productId ==
+                                                        'Moon_flower') {
+                                                      cntCards++;
+                                                      failPu = false;
+                                                      Zal.zal!.setBool(
+                                                          'thiBog', true);
+                                                    }
+                                                  }
+
+                                                  if (cntCards > 0) {
+                                                    Get.showSnackbar(
+                                                      GetSnackBar(
+                                                        duration: 2000.ms,
+                                                        backgroundColor:
+                                                            Colors.white,
+                                                        messageText: Center(
+                                                          child: Text(
+                                                            'Purchases restored',
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .black),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    );
+                                                  }
+                                                }
+
+                                                if (failPu) {
+                                                  Get.showSnackbar(
+                                                    GetSnackBar(
+                                                      duration: 2000.ms,
+                                                      backgroundColor:
+                                                          Colors.white,
+                                                      messageText: Center(
+                                                        child: Text(
+                                                          'Purchase is not found',
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.black),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                }
+
+                                                puCardsLo.value = false;
+                                              }
+                                            },
+                                            child: Image.asset(
+                                              'assets/bu/restore_purchase_bt.png',
+                                              height: 45,
+                                              fit: BoxFit.fitWidth,
+                                            ),
+                                          ),
                                   ),
                                 ],
                               ),
