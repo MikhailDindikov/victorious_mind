@@ -29,88 +29,163 @@ class CaGaSec extends StatefulWidget {
   final ModeCardd? modeCardd3;
   final ModeCardd? modeCardd4;
   final ModeCardd? modeCardd5;
-  const CaGaSec({required this.selRez, super.key, this.modeCardd1, this.modeCardd2, this.modeCardd3, this.modeCardd4, this.modeCardd5});
+  const CaGaSec(
+      {required this.selRez,
+      super.key,
+      this.modeCardd1,
+      this.modeCardd2,
+      this.modeCardd3,
+      this.modeCardd4,
+      this.modeCardd5});
   double sumCard0(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
     final kardDi = (c1.poRowCard - c2.poRowCard).abs();
-    return kardDi - 1.0 *
-        kardKoe *
-        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
-                2)
-            .toInt() + kardAngKoe;
-  }
-double sumCard1(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
-    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
-    return kardDi - 1.0 *
-        kardKoe *
-        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
-                2)
-            .toInt() + kardAngKoe;
-  }
-double sumCard2(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
-    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
-    return kardDi - 1.0 *
-        kardKoe *
-        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
-                2)
-            .toInt() + kardAngKoe;
-  }
-double sumCard3(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
-    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
-    return kardDi - 1.0 *
-        kardKoe *
-        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
-                2)
-            .toInt() + kardAngKoe;
-  }
-double sumCard4(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
-    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
-    return kardDi - 1.0 *
-        kardKoe *
-        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
-                2)
-            .toInt() + kardAngKoe;
-  }
-double sumCard5(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
-    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
-    return kardDi - 1.0 *
-        kardKoe *
-        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
-                2)
-            .toInt() + kardAngKoe;
-  }
-double sumCard6(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
-    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
-    return kardDi - 1.0 *
-        kardKoe *
-        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
-                2)
-            .toInt() + kardAngKoe;
-  }
-double sumCard7(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
-    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
-    return kardDi - 1.0 *
-        kardKoe *
-        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
-                2)
-            .toInt() + kardAngKoe;
-  }
-double sumCard8(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
-    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
-    return kardDi - 1.0 *
-        kardKoe *
-        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
-                2)
-            .toInt() + kardAngKoe;
-  }
-double sumCard9(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
-    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
-    return kardDi - 1.0 *
-        kardKoe *
-        pow(c1.poRowCard + 2 * c2.poRowCard + c1.poColCard ~/ 2 + c2.poColCard,
-                2)
-            .toInt() + kardAngKoe;
+    return kardDi -
+        1.0 *
+            kardKoe *
+            pow(
+                    c1.poRowCard +
+                        2 * c2.poRowCard +
+                        c1.poColCard ~/ 2 +
+                        c2.poColCard,
+                    2)
+                .toInt() +
+        kardAngKoe;
   }
 
+  double sumCard1(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi -
+        1.0 *
+            kardKoe *
+            pow(
+                    c1.poRowCard +
+                        2 * c2.poRowCard +
+                        c1.poColCard ~/ 2 +
+                        c2.poColCard,
+                    2)
+                .toInt() +
+        kardAngKoe;
+  }
+
+  double sumCard2(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi -
+        1.0 *
+            kardKoe *
+            pow(
+                    c1.poRowCard +
+                        2 * c2.poRowCard +
+                        c1.poColCard ~/ 2 +
+                        c2.poColCard,
+                    2)
+                .toInt() +
+        kardAngKoe;
+  }
+
+  double sumCard3(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi -
+        1.0 *
+            kardKoe *
+            pow(
+                    c1.poRowCard +
+                        2 * c2.poRowCard +
+                        c1.poColCard ~/ 2 +
+                        c2.poColCard,
+                    2)
+                .toInt() +
+        kardAngKoe;
+  }
+
+  double sumCard4(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi -
+        1.0 *
+            kardKoe *
+            pow(
+                    c1.poRowCard +
+                        2 * c2.poRowCard +
+                        c1.poColCard ~/ 2 +
+                        c2.poColCard,
+                    2)
+                .toInt() +
+        kardAngKoe;
+  }
+
+  double sumCard5(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi -
+        1.0 *
+            kardKoe *
+            pow(
+                    c1.poRowCard +
+                        2 * c2.poRowCard +
+                        c1.poColCard ~/ 2 +
+                        c2.poColCard,
+                    2)
+                .toInt() +
+        kardAngKoe;
+  }
+
+  double sumCard6(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi -
+        1.0 *
+            kardKoe *
+            pow(
+                    c1.poRowCard +
+                        2 * c2.poRowCard +
+                        c1.poColCard ~/ 2 +
+                        c2.poColCard,
+                    2)
+                .toInt() +
+        kardAngKoe;
+  }
+
+  double sumCard7(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi -
+        1.0 *
+            kardKoe *
+            pow(
+                    c1.poRowCard +
+                        2 * c2.poRowCard +
+                        c1.poColCard ~/ 2 +
+                        c2.poColCard,
+                    2)
+                .toInt() +
+        kardAngKoe;
+  }
+
+  double sumCard8(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi -
+        1.0 *
+            kardKoe *
+            pow(
+                    c1.poRowCard +
+                        2 * c2.poRowCard +
+                        c1.poColCard ~/ 2 +
+                        c2.poColCard,
+                    2)
+                .toInt() +
+        kardAngKoe;
+  }
+
+  double sumCard9(ModeCardd c1, ModeCardd c2, int kardKoe, double kardAngKoe) {
+    final kardDi = (c1.poRowCard - c2.poRowCard).abs();
+    return kardDi -
+        1.0 *
+            kardKoe *
+            pow(
+                    c1.poRowCard +
+                        2 * c2.poRowCard +
+                        c1.poColCard ~/ 2 +
+                        c2.poColCard,
+                    2)
+                .toInt() +
+        kardAngKoe;
+  }
 
   @override
   State<CaGaSec> createState() => _CaGaSecState();
@@ -642,7 +717,7 @@ class _CaGaSecState extends State<CaGaSec> with TickerProviderStateMixin {
         ),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.only(top: 22.5),
+            padding: const EdgeInsets.only(top: 22.5, bottom: 12),
             child: Row(
               children: [
                 Expanded(
@@ -908,32 +983,36 @@ class _CaGaSecState extends State<CaGaSec> with TickerProviderStateMixin {
                               ),
                             ]),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: List.generate(
-                          cntRowCa,
-                          (index) => GestureDetector(
-                            onTap: () {
-                              //onCaCa();
-                              if (canFlipCards &&
-                                  !finishedCards.contains(indxs[index]) &&
-                                  !cts[index].isFrontCatd &&
-                                  !cts[index].isAnimat) {
-                                cts[index].flipCard();
-                                _onCardTa(index);
-                              }
-                            },
-                            child: CardCus(
-                              indexCa: indxs[index],
-                              frontCa: RawImage(
-                                image: GameCards.gameCards[indxs[index]],
-                                width: 54,
+                      Expanded(
+                        child: Center(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: List.generate(
+                              cntRowCa,
+                              (index) => GestureDetector(
+                                onTap: () {
+                                  //onCaCa();
+                                  if (canFlipCards &&
+                                      !finishedCards.contains(indxs[index]) &&
+                                      !cts[index].isFrontCatd &&
+                                      !cts[index].isAnimat) {
+                                    cts[index].flipCard();
+                                    _onCardTa(index);
+                                  }
+                                },
+                                child: CardCus(
+                                  indexCa: indxs[index],
+                                  frontCa: RawImage(
+                                    image: GameCards.gameCards[indxs[index]],
+                                    width: 54,
+                                  ),
+                                  backCa: RawImage(
+                                    image: backCardIm,
+                                    width: 54,
+                                  ),
+                                  contr: cts[index],
+                                ),
                               ),
-                              backCa: RawImage(
-                                image: backCardIm,
-                                width: 54,
-                              ),
-                              contr: cts[index],
                             ),
                           ),
                         ),
